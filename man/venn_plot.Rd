@@ -24,10 +24,10 @@ venn_plot(data, fillColor = NULL, fileName, main = NULL, fontSize = 1.5,
 a tiff or png file for your venn graphics
 }
 \description{
-plot a venn graphics
+plot a venn graphics it wrap VennDiagram and make venn more simple
 }
 \note{
-Since the \code{venn.diaram()} is not support pdf type file so your \code{fillName} not allow xxx.pdf
+Since the \code{venn.diaram()} is not support pdf type file so your \code{fillName} not allow pdf type file
 }
 \examples{
 
@@ -38,4 +38,7 @@ GroupB <- sample(geneNames,300,replace = F)
 GroupC <- sample(geneNames,200,replace = F)
 GroupD <- sample(geneNames,500,replace = F)
 venn_plot(data=list(A=GroupA,B=GroupB,C=GroupC,D=GroupD),fileName='test_venn_plot.tiff')
+}
+\author{
+chencheng <jamebluntxy@gmail.com>
 }
