@@ -21,11 +21,15 @@
 #'
 venn_plot <- function(data,fillColor=NULL,fileName,main=NULL,fontSize=1.5,fontColor='white'){
   if(is.null(fillColor)){
-    fillColor = c("#386cb0","#fdb462","#7fc97f","#ef3b2c")
+    defaultColor <- c("#386cb0","#fdb462","#7fc97f","#ef3b2c")
+    dataNum <- length(data)
+    fillColor <- defaultColor[1:dataNum]
   }
   VennDiagram::venn.diagram(
     x = data,
     filename = fileName,
+    col = "transparent",
+    fill = fillColor,
     main = main,
     label.col = fontColor,
     cex = fontSize,
