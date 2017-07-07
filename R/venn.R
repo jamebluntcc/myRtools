@@ -1,5 +1,6 @@
 #' plot a venn graphics
-#'
+#' @description plot a venn graphics it wrap VennDiagram and make venn more simple
+#' @author chencheng <jamebluntxy@gmail.com>
 #' @param data A list for your group data
 #' @param fillColor A vector for fill your venn plot default \code{fillColor} is provided
 #' @param fileName A character for your outputfile name
@@ -7,7 +8,7 @@
 #' @param fontSize A number for your label size default \code{fontSize} is 1.5
 #' @param fontColor A character for your label color default \code{fontColor} is white
 #' @return a tiff or png file for your venn graphics
-#' @note Since the \code{venn.diaram()} is not support pdf type file so your \code{fillName} not allow xxx.pdf
+#' @note Since the \code{venn.diaram()} is not support pdf type file so your \code{fillName} not allow pdf type file
 #' @examples
 #'
 #' oneName <- function() paste(sample(LETTERS,5,replace=TRUE),collapse="")
