@@ -1,4 +1,4 @@
 library(testthat)
-library(sayHello2)
+library(myRtools)
 
-test_check("sayHello2")
+test_check("myRtools")
