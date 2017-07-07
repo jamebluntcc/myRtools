@@ -1,9 +1,11 @@
-Package: sayHello2
-Title: print your name by sayHello which a demo for R build package
+Package: myRtools
+Title: a collection of many useful graphic tools
 Version: 0.0.0.9000
-Authors@R: 'chen cheng <291552579@qq.com> [aut,cre]'
-Description: What the package does (one paragraph).
-Depends: R (>= 3.4.0)
+Authors@R: person("chen","cheng",email="291552579@qq.com",role=c("aut","cre"))
+Description: Collection of graphic tools and functions to generate graphics quickly
+Depends: R (>= 3.1.0)
+Imports:
+  VennDiagram (>= 1.6.17)
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
