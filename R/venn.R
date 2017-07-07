@@ -23,7 +23,7 @@ venn_plot <- function(data,fillColor=NULL,fileName,main=NULL,fontSize=1.5,fontCo
   if(is.null(fillColor)){
     fillColor = c("#386cb0","#fdb462","#7fc97f","#ef3b2c")
   }
-  venn.diagram(
+  VennDiagram::venn.diagram(
     x = data,
     filename = fileName,
     main = main,
