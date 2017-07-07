@@ -1,11 +1,12 @@
 Package: myRtools
 Title: a collection of many useful graphic tools
 Version: 0.0.0.9000
-Authors@R: person("chen","cheng",email="291552579@qq.com",role=c("aut","cre"))
+Authors@R: person("chen","cheng",email="chencheng@onmath.cn",role=c("aut","cre"))
 Description: Collection of graphic tools and functions to generate graphics quickly
 Depends: R (>= 3.1.0)
 Imports:
-  VennDiagram (>= 1.6.17)
+  VennDiagram (>= 1.6.17),
+  qqman (>= 0.1.4)
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
