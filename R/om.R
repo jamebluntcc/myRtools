@@ -17,7 +17,7 @@ theme_om <- function(base_size = 14){
       legend.background = element_rect(colour = NA),
       legend.title = element_text(face = "italic"),
       strip.text = element_text(face = "bold"),
-      strip.background = element_rect(fill = NA,colour = "grey60")
+      strip.background=element_rect(colour="#f0f0f0",fill="#f0f0f0")
       )
 }
 theme_net <- function(...){
