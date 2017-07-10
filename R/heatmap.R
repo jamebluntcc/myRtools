@@ -7,7 +7,7 @@ heatmap_plot <- function(data,Scale = "column",showRowNames = F,showColNames=TRU
                          clusterLegend = TRUE,Main = NA,fontSize = 10,
                          fontSizeRow = fontSize,fontSizeCol = fontSize,
                          clusterGroup = NA,
-                         Color = colorRampPalette(rev(RColorBrewer::brewer.pal(n=7,name="RdYlBu")))(100),
+                         Color = colorRampPalette(rev(RColorBrewer::brewer.pal(n=7,name="RdYlGn")))(100),
                          saveType = c("both","pdf","png"),fileName = NULL,filePath = "",width = 8,height = 6
 ){
   if(!is.na(clusterGroup)){
