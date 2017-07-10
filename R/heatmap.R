@@ -1,5 +1,43 @@
-#' heatmap
+#' A function to draw cluster heatmaps wrap pehatmap package and make it more simple.
 #'
+#' The function also allows to aggregate the rows using kmeans clustering. This is
+#' advisable if number of rows is so big that R cannot handle their hierarchical
+#'
+#' @param data numeric matrix of the values to be plotted.
+#' @param color vector of colors used in heatmap.
+#' @param borderColor color of cell borders on heatmap, use \code{grey} if no border should be drawn.
+#' @param Scale character indicating if the values should be centered and scaled in
+#' either the row direction or the column direction, or none. Corresponding values are
+#' \code{"row"}, \code{"column"} and \code{"none"} default is \code{"column"}
+#' @param clusterRows boolean values determining if rows should be clustered or \code{hclust} object,
+#' @param clusterCols boolean values determining if columns should be clustered or \code{hclust} object.
+#' @param clusteringDistanceRows distance measure used in clustering rows. Possible
+#' values are \code{"correlation"} for Pearson correlation and all the distances
+#' supported by \code{\link{dist}}, such as \code{"euclidean"}, etc. If the value is none
+#' of the above it is assumed that a distance matrix is provided.
+#' @param clusteringDistanceCols distance measure used in clustering columns. Possible
+#' values the same as for clustering_distance_rows.
+#' @param clusteringMethod clustering method used. Accepts the same values as
+#' \code{\link{hclust}}.
+#' @param treeHeightCol the height of a tree for columns, if these are clustered.
+#' Default value 50 points.
+#' @param legend logical to determine if legend should be drawn or not.
+#' @param Main the title of the plot
+#' @param fontSize base fontsize for the plot
+#' @param fontSizeRow fontsize for rownames (Default: fontsize)
+#' @param fontSizeCol fontsize for colnames (Default: fontsize)
+#' @param filePath file path where to save the picture.
+#' @param fileName file name. Filetype is decided by
+#' the extension in the path. Currently following formats are supported: png, pdf, tiff,
+#'  bmp, jpeg. Even if the plot does not fit into the plotting window, the file size is
+#' calculated so that the plot would fit there, unless specified otherwise.
+#' @param Width manual option for determining the output file width in inches.
+#' @param Height manual option for determining the output file height in inches.
+#' @param clusterGroup a list not include \code{factor} to divide your group,default is \code{NA}.
+#' @return
+#' Invisibly a list of components
+#'
+#' @author  chencheng <chencheng@onmath.cn>
 heatmap_plot <- function(data,Scale = "column",showRowNames = F,showColNames=TRUE,borderColor = "grey",
                          clusterRows = TRUE,clusterCols = TRUE,
                          clusterDistanceRows = "euclidean",clusterDistanceCols = "euclidean",
@@ -10,30 +48,21 @@ heatmap_plot <- function(data,Scale = "column",showRowNames = F,showColNames=TRU
                          Color = colorRampPalette(rev(RColorBrewer::brewer.pal(n=7,name="RdYlGn")))(100),
                          saveType = c("both","pdf","png"),fileName = NULL,filePath = "",width = 8,height = 6
 ){
-  if(!is.na(clusterGroup)){
+  if(!any(is.na(clusterGroup))){
     cluster_group <- clusterGroup #list no factor
     if(is.null(names(cluster_group))){
       names(cluster_group) <- paste0('group',1:length(cluster_group))
     }
-    annotationCol <- as.data.frame(cluster_group)
-    annColors <- list()
-    totalColorNum <- 0
-    for(i in 1:dim(annotationCol)[2]){
-      totalColorNum <- totalColorNum + length(unique(annotationCol[,i]))
-      annColors[[i]] <- unique(annotationCol[,i])
+    cluster_group_vector = NULL
+    for(i in 1:length(cluster_group)){
+      cluster_group_vector <- c(cluster_group_vector,rep(names(cluster_group)[i],length(cluster_group[[i]])))
     }
-    names(annColors) <- names(cluster_group)
-    #annotationCol <- apply(annotationCol,2,as.factor) #transform to factor
-    totalColor <- colorRampPalette(RColorBrewer::brewer.pal(9,"Set1"))(totalColorNum)
-    count_setp <- 0
-    for(i in 1:length(annColors)){
-      names(annColors[[i]]) <- rep("",length(annColors[[i]]))
-      for(j in 1:length(annColors[[i]])){
-        count_setp <- count_setp + 1
-        names(annColors[[i]])[j] <- annColors[[i]][j]
-        annColors[[i]][j] <- totalColor[count_setp]
-      }
-    }
+    annotationCol <- data.frame(group = rep('group',length(cluster_group_vector)))
+    annotationCol$group <- cluster_group_vector
+    annColors <- list(group=NULL)
+    totalColor <- colorRampPalette(om_pal()(9))(length(cluster_group))
+    names(totalColor) <- unique(cluster_group_vector)
+    annColors$group <- totalColor
     rownames(annotationCol) <- colnames(data) #mapping
   }else{
     annotationCol <- NA
