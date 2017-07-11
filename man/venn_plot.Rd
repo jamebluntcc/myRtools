@@ -4,21 +4,26 @@
 \alias{venn_plot}
 \title{plot a venn graphics}
 \usage{
-venn_plot(data, fillColor = NULL, fileName, main = NULL, fontSize = 1.5,
-  fontColor = "white")
+venn_plot(data, fillColor = NULL, fileName = NULL, main = NULL,
+  fontSize = 1.5, fontColor = "white", saveType = c("tiff", "png"),
+  Margin = 0.1)
 }
 \arguments{
-\item{data}{A list for your group data}
+\item{data}{a list for your group data}
 
-\item{fillColor}{A vector for fill your venn plot default \code{fillColor} is provided}
+\item{fillColor}{a vector for fill your venn plot default \code{fillColor} is provided}
 
-\item{fileName}{A character for your outputfile name}
+\item{fileName}{a character for your outputfile name}
 
-\item{main}{A character for the title in your venn plot default \code{main} is NULL}
+\item{main}{a character for the title in your venn plot default \code{main} is NULL}
 
-\item{fontSize}{A number for your label size default \code{fontSize} is 1.5}
+\item{fontSize}{a number for your label size default \code{fontSize} is 1.5}
 
-\item{fontColor}{A character for your label color default \code{fontColor} is white}
+\item{fontColor}{a character for your label color default \code{fontColor} is white}
+
+\item{saveType}{a character for your save file type png or tiff}
+
+\item{Margin}{a number for your venn margin more Margin less size in your venn graphics}
 }
 \value{
 a tiff or png file for your venn graphics
@@ -40,5 +45,5 @@ GroupD <- sample(geneNames,500,replace = F)
 venn_plot(data=list(A=GroupA,B=GroupB,C=GroupC,D=GroupD),fileName='test_venn_plot.tiff')
 }
 \author{
-chencheng <jamebluntxy@gmail.com>
+chencheng <chencheng@onmath.cn>
 }
