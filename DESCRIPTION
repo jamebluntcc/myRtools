@@ -5,12 +5,14 @@ Authors@R: person("chen","cheng",email="chencheng@onmath.cn",role=c("aut","cre")
 Description: Collection of graphic tools and functions to generate graphics quickly
 Depends: 
   R (>= 3.1.0),
-  ggplot2 (>= 2.2.0)
-Imports:
+  ggplot2 (>= 2.2.0),
   VennDiagram (>= 1.6.17),
-  qqman (>= 0.1.4),
+  pheatmap(>= 1.0.8),
+  qqman (>= 0.1.4)
+Imports:
   grid,
-  pheatmap(>= 1.0.8)
+  dplyr,
+  scales
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
