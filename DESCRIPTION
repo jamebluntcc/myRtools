@@ -1,6 +1,6 @@
 Package: myRtools
 Title: a collection of many useful graphic tools
-Version: 0.0.0.1000
+Version: 0.0.0.1100
 Authors@R: person("chen","cheng",email="chencheng@onmath.cn",role=c("aut","cre"))
 Description: Collection of graphic tools and functions to generate graphics quickly
 Depends: 
@@ -10,9 +10,16 @@ Depends:
   pheatmap(>= 1.0.8),
   qqman (>= 0.1.4)
 Imports:
+  gridExtra,
+  reshape2,
+  stringr,
+  yarrr,
+  gplots,
   grid,
   dplyr,
-  scales
+  ggthemes,
+  scales,
+  plyr
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
