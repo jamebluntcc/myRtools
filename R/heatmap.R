@@ -1,4 +1,4 @@
-#' A function to draw cluster heatmaps wrap pehatmap package and make it more simple.
+#' Creates a heatmap plot fork by raivokolde/pheatmap wrap and make it more simple
 #'
 #' The function also allows to aggregate the rows using kmeans clustering. This is
 #' advisable if number of rows is so big that R cannot handle their hierarchical
@@ -33,11 +33,9 @@
 #' calculated so that the plot would fit there, unless specified otherwise.
 #' @param Width manual option for determining the output file width in inches.
 #' @param Height manual option for determining the output file height in inches.
-#' @param clusterGroup a list not include \code{factor} to divide your group,default is \code{NA}.
-#' @return
-#' Invisibly a list of components
+#' @param clusterGroup a list of character to divide your group,default is \code{NA}.
+#' @return A heatmap plot file of pdf or png.
 #'
-#' @author  chencheng <chencheng@onmath.cn>
 heatmap_plot <- function(data,Scale = "column",showRowNames = F,showColNames=TRUE,borderColor = "grey",
                          clusterRows = TRUE,clusterCols = TRUE,
                          clusterDistanceRows = "euclidean",clusterDistanceCols = "euclidean",
