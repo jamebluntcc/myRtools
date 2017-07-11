@@ -35,6 +35,7 @@
 #' @param Height manual option for determining the output file height in inches.
 #' @param clusterGroup a list of character to divide your group,default is \code{NA}.
 #' @return A heatmap plot file of pdf or png.
+#'@export
 #'
 heatmap_plot <- function(data,Scale = "column",showRowNames = F,showColNames=TRUE,borderColor = "grey",
                          clusterRows = TRUE,clusterCols = TRUE,
