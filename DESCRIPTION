@@ -13,7 +13,6 @@ Imports:
   gridExtra,
   reshape2,
   stringr,
-  yarrr,
   gplots,
   grid,
   dplyr,
